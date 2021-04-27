@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "LU разложение - финал", "LU разложение - финал.pyproj", "{F97B81B0-C3E3-438F-A973-AE67A08AC17D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F97B81B0-C3E3-438F-A973-AE67A08AC17D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F97B81B0-C3E3-438F-A973-AE67A08AC17D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE08D648-1840-4DFD-9359-3A6282ADC1C4}
+	EndGlobalSection
+EndGlobal
