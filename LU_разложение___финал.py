@@ -1,6 +1,6 @@
 # Python3 Program to decompose
-# a matrix into lower and
-# upper traingular matrix
+# a matrix into L and
+# U traingular matrix
 
 import numpy as np
 
@@ -8,73 +8,48 @@ import numpy as np
  
 def luDecomposition(mat, n):
  
-    lower = [[0 for x in range(n)]
-             for y in range(n)]
-    upper = [[0 for x in range(n)]
-             for y in range(n)]
+    L = np.zeros((n,n))
+    U = mat
  
-    # Decomposing matrix into Upper
-    # and Lower triangular matrix
+
     for i in range(n):
- 
-        # U
-        for k in range(i, n):
- 
-            # Summation of L(i, j) * U(j, k)
-            sum = 0
-            for j in range(i):
-                sum += (lower[i][j] * upper[j][k])
- 
-            # Evaluating U(i, k)
-            upper[i][k] = mat[i][k] - sum
- 
-        # L
-        for k in range(i, n):
-            if (i == k):
-                lower[i][i] = 1  # Diagonal as 1
-            else:
- 
-                # Summation of L(k, j) * U(j, i)
-                sum = 0
-                for j in range(i):
-                    sum += (lower[k][j] * upper[j][i])
- 
-                # Evaluating L(k, i)
-                lower[k][i] = int((mat[k][i] - sum) /
-                                  upper[i][i])
- 
-    # setw is for displaying nicely
+        for j in range(i, n):
+            L[j][i]=U[j][i]/U[i][i]
+    for k in range(1, n):
+        for i in range(k-1, n):
+             for j in range(i, n):
+                 L[j][i]=U[j][i]/U[i][i]
+        for i in range(k, n):
+             for j in range(k-1, n):
+                 U[i][j]=U[i][j]-L[i][k-1]*U[k-1][j]
+                
+
     print("L:\t\t\t\tU:")
- 
-    # Displaying the result :
-    for i in range(n):
- 
-        # Lower
-        for j in range(n):
-            print(lower[i][j], end="\t")
-        print("", end="\t")
- 
-        # Upper
-        for j in range(n):
-            print(upper[i][j], end="\t")
-        print("")
+    print(L)
+    print(U)
+    
 
-    return lower, upper
+    return L, U
  
  
-# Driver code
-mat = [[2, -1, -2],
-       [-4, 6, 3],
-       [-4, -2, 8]]
 
-b = [1, 1, 1]
-n=len(b)
+n = int(input('Количество неизвестных: '))
+
+a = np.zeros((n,n))
+b = np.zeros(n)
+
+for i in range(n):
+    for j in range(n):
+        a[i][j] = float(input( 'a['+str(i)+']['+ str(j)+']='))
+
+for i in range(n):
+        b[i] = float(input( 'b['+str(i)+']='))
  
-L, U=luDecomposition(mat, n)
+L, U=luDecomposition(a, n)
 
 y=[0]*n
 x=[0]*n
-A=mat
+A=a
 for i in range(n):
     alpha = 0;
     for k in range(0, i):
