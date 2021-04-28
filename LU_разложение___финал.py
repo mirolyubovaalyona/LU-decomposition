@@ -24,8 +24,9 @@ def luDecomposition(mat, n):
                  U[i][j]=U[i][j]-L[i][k-1]*U[k-1][j]
                 
 
-    print("L:\t\t\t\tU:")
+    print("L:")
     print(L)
+    print("U:")
     print(U)
     
 
